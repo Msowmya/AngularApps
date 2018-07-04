@@ -1,4 +1,7 @@
 <div class="flag-container" [ngStyle]="{'background-image':'url('+flag+')'}">
 
 </div>
-<p>{{name}}</p>
+<p>{{name}} ({{population}})</p>
+<div>
+    <button (click)="vote()">Vote</button>
+</div>

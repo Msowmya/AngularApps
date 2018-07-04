@@ -8,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   name: string;
   countries: any[];
+  selectedCountry: any = {
+    name: 'name',
+    flag: 'http://via.placeholder.com/50x50',
+    population: '123456'
+  };
+  total = 0;
+  voters: any[] = [];
 
   constructor() {
     this.name = 'Sowmya';
@@ -23,13 +30,28 @@ export class AppComponent implements OnInit {
     .then (
       countries => {
         this.countries = countries;
+        this.selectedCountry = countries[0];
         console.log(this.countries);
       }
     );
   }
+
   myfunc() {
     console.log('Hello World');
     this.name = 'Ramya';
+  }
+
+  showCountry(country) {
+    this.selectedCountry = country;
+  }
+
+  vote(voteData) {
+    const exist = this.voters.some(voter => voter.name === voteData.name);
+    if (!exist) {
+      this.voters.push(voteData);
+    }
+    this.total += voteData.qty;
+    console.log('voteData:', voteData);
   }
 
 }
