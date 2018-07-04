@@ -1,7 +1,8 @@
-<div class="flag-container" [ngStyle]="{'background-image':'url('+flag+')'}">
+<div class="flag-container" [ngStyle]="{'background-image':'url('+flag+')'}" [ngClass]="{'favourite': isFavourite}">
 
 </div>
 <p>{{name}} ({{population}})</p>
 <div>
     <button (click)="vote()">Vote</button>
+    <button (click)="setFavourite()">Favourite</button>
 </div>

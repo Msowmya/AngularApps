@@ -10,9 +10,15 @@ export class CountryComponent implements OnInit {
   @Input() flag = "http://via.placeholder.com/50x50";
   @Input() population = "123456";
   @Output() voting: EventEmitter<any> = new EventEmitter<any>();
+  isFavourite = false;
   constructor() { }
 
   ngOnInit() {
+    console.log(localStorage.getItem('country'));
+    const findItCountry = localStorage.getItem('country');
+    if ( this.name === findItCountry ) {
+      this.isFavourite = true;
+    }
   }
 
   vote() {
@@ -21,6 +27,11 @@ export class CountryComponent implements OnInit {
       qty: 1
     };
     this.voting.emit(voteData);
+  }
+
+  setFavourite() {
+    localStorage.setItem('country', this.name);
+    this.isFavourite = true;
   }
 
 }

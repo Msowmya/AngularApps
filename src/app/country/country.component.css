@@ -4,3 +4,7 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.favourite {
+    border: 2px solid red;
+}
