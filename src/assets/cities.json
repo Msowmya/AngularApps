@@ -1,0 +1,14 @@
+{
+    "cities": [
+       { 
+            "name":  "Mexico City",
+            "dish": "Tacos"
+       },{
+            "name":  "California",
+            "dish": "Burgers"
+       },{
+            "name":  "Tokio",
+            "dish": "Sushi"
+       }
+    ]
+}
