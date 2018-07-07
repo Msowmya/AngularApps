@@ -6,12 +6,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./country.component.css']
 })
 export class CountryComponent implements OnInit {
-  @Input() name = 'The country';
-  @Input() flag = "http://via.placeholder.com/50x50";
-  @Input() population = "123456";
+  @Input('name') nameCountry = 'The country';
+  @Input() flag = 'http://via.placeholder.com/50x50';
+  @Input() population = '123456';
   @Output() voting: EventEmitter<any> = new EventEmitter<any>();
   isFavourite = false;
-  constructor() { }
+  name = "";
+  constructor() {}
 
   ngOnInit() {
     console.log(localStorage.getItem('country'));
@@ -30,8 +31,11 @@ export class CountryComponent implements OnInit {
   }
 
   setFavourite() {
+    const elements: NodeListOf<Element> = document.getElementsByClassName('favourite');
+    elements[0].classList.remove('favourite');
     localStorage.setItem('country', this.name);
     this.isFavourite = true;
+    console.log(this.isFavourite);
   }
 
 }

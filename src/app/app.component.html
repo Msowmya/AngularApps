@@ -6,7 +6,7 @@
 <ul>
   <li *ngFor="let country of countries">{{country.name}}</li>
 </ul> -->
-<div>
+<!-- <div>
   <app-country [flag]="selectedCountry.flag" [name]="selectedCountry.name" [population]="selectedCountry.population"></app-country>
   <span>Country favourites:{{total}}</span>
 </div>
@@ -19,6 +19,9 @@
 
 <div class="country-container">
   <app-country *ngFor="let country of countries" [flag]="country.flag" [name]="country.name" [population]="country.population" (click)="showCountry(country)" (voting)="vote($event)"></app-country>
-</div>
+</div> -->
 
+<ul>
+  <li *ngFor="let city of cities">{{city.name}} - {{city.dish}}</li>
+</ul>
 
